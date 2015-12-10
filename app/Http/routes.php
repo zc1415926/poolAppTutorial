@@ -27,6 +27,7 @@ Route::delete('api/todo/{id}', ['uses' => 'TodoController@delete','middleware'=>
 Route::put('api/todo/{id}', ['uses' => 'TodoController@update','middleware'=>'simpleauth']);
 
 
-Route::resource('api/pool','PoolsController');
+//Route::resource('api/pool', ['middleware' => 'cors', 'uses' => 'PoolsController']);
 Route::resource('api/pooloption','PoolOptionsController');
 Route::get('api/pooloption/addvote/{id}','PoolOptionsController@addVote');
+Route::get('api/pool', ['middleware' => 'cors', 'uses' => 'PoolsController@index']);
